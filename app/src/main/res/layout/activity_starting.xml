@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="mnmnm.radari.StartingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvStarting1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ZZH RADARI BOSNA I HERCEGOVINA"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnStarting1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grude" />
+
+            <Button
+                android:id="@+id/btnStarting3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Posušje" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnStarting2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ljubuški" />
+
+            <Button
+                android:id="@+id/btnStarting4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Široki Brijeg" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnStartingRefresh"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:text="Osvježi" />
+
+        <TextView
+            android:id="@+id/tvStartingRefreshed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/btnStartingRefresh"
+            android:layout_toStartOf="@+id/btnStartingRefresh"
+            android:text="Posljednje osvjezeno:\n00-00-0000 00:00"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>
