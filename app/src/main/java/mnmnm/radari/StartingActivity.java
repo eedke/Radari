@@ -8,11 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
-import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,15 +21,16 @@ import com.orm.SugarContext;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 
 public class StartingActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnStarting1, btnStarting2, btnStarting3, btnStarting4, btnStartingRefresh;
     TextView tvStarting1;
-    CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
+    CheckBox checkBox1;
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
     private SharedPreferences loginPreferences;
     private SharedPreferences.Editor loginPrefsEditor;
-    private Boolean saveCheckbox1, saveCheckbox2, saveCheckbox3, saveCheckbox4;
+    private Boolean saveCheckbox1;
     public GetDataFromJSON g;
 
     @Override
@@ -46,9 +46,6 @@ public class StartingActivity extends AppCompatActivity implements View.OnClickL
         btnStartingRefresh = findViewById(R.id.btnStartingRefresh);
 
         checkBox1 = findViewById(R.id.checkBox1);
-        checkBox2 = findViewById(R.id.checkBox2);
-        checkBox3 = findViewById(R.id.checkBox3);
-        checkBox4 = findViewById(R.id.checkBox4);
 
         tvStarting1 = findViewById(R.id.tvStarting1);
         Calendar c = Calendar.getInstance();
@@ -70,55 +67,19 @@ public class StartingActivity extends AppCompatActivity implements View.OnClickL
         if (saveCheckbox1 == true) {
             checkBox1.setChecked(true);
         }
-        saveCheckbox2 = loginPreferences.getBoolean("saveButton2", false);
-        if (saveCheckbox2 == true) {
-            checkBox2.setChecked(true);
-
-        }
-        saveCheckbox3 = loginPreferences.getBoolean("saveButton3", false);
-        if (saveCheckbox3 == true) {
-            checkBox3.setChecked(true);
-        }
-        saveCheckbox4 = loginPreferences.getBoolean("saveButton4", false);
-        if (saveCheckbox4 == true) {
-            checkBox4.setChecked(true);
-        }
-
         checkBox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
                     scheduleNotification(getApplicationContext(), 33);
-                    setRecurringAlarm();
+                    setRecurringAlarm(StartingActivity.this);
                 }else {
                     String ns = Context.NOTIFICATION_SERVICE;
                     NotificationManager nMgr = (NotificationManager) getApplicationContext().getSystemService(ns);
-                    nMgr.cancel(110);
                     nMgr.cancel(33);
+                    nMgr.cancel(0);
                 }
                 loginPrefsEditor.putBoolean("saveButton1", b);
-                loginPrefsEditor.commit();
-            }
-        });
-        checkBox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                loginPrefsEditor.putBoolean("saveButton2", b);
-                loginPrefsEditor.commit();
-
-            }
-        });
-        checkBox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                loginPrefsEditor.putBoolean("saveButton3", b);
-                loginPrefsEditor.commit();
-            }
-        });
-        checkBox4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                loginPrefsEditor.putBoolean("saveButton4", b);
                 loginPrefsEditor.commit();
             }
         });
@@ -168,16 +129,25 @@ public class StartingActivity extends AppCompatActivity implements View.OnClickL
         return false;
     }
 
-    private void setRecurringAlarm(){
+    private void setRecurringAlarm(Context context){
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 9);
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 17);
         calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        Intent intent1 = new Intent(StartingActivity.this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(StartingActivity.this, 110,intent1, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager am = (AlarmManager) StartingActivity.this.getSystemService(StartingActivity.this.ALARM_SERVICE);
-        am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_HALF_DAY, pendingIntent);
+        calendar.set(Calendar.SECOND, 15);
 
+        alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, AlarmReceiver.class);
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String strDate = sdf.format(c.getTime());
+        intent.putExtra("ima/nema", (checkDate(strDate)));
+        sendBroadcast(intent);
+        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+
+        Log.i("setRecurringAlarm", "postavljen alarm u 17:00");
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                1000 * 60 * 60 * 12, alarmIntent);
     }
 
     public void scheduleNotification(Context context, int notificationId) {//delay is after how much time(in millis) from current time you want to schedule the notification
