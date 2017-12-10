@@ -2,10 +2,6 @@ package mnmnm.radari;
 
 import com.orm.SugarRecord;
 
-/**
- * Created by Edo on 27.6.2017..
- */
-
 public class SugarRadars extends SugarRecord {
     String date;
     String PU;
@@ -16,6 +12,7 @@ public class SugarRadars extends SugarRecord {
     public SugarRadars(){
 
     }
+
     public SugarRadars(String date, String PU, String time1, String time2, String place){
         this.date = date;
         this.PU = PU;
@@ -23,7 +20,6 @@ public class SugarRadars extends SugarRecord {
         this.time2 = time2;
         this.place = place;
     }
-
 
     public String getDate() {
         return date;

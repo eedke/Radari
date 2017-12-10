@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="mnmnm.radari.StartingActivity">
+    tools:context="mnmnm.radari.StartingActivity"
+    android:background="@drawable/radarad">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="ZZH RADARI BOSNA I HERCEGOVINA"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -45,6 +46,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Posušje" />
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grude" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Posusje" />
         </LinearLayout>
 
         <LinearLayout
@@ -64,6 +77,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Široki Brijeg" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ljubuski" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="Siroki Brijeg" />
         </LinearLayout>
     </LinearLayout>
 
@@ -85,14 +113,16 @@
             android:text="Osvježi" />
 
         <TextView
-            android:id="@+id/tvStartingRefreshed"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/btnStartingRefresh"
-            android:layout_toStartOf="@+id/btnStartingRefresh"
-            android:text="Posljednje osvjezeno:\n00-00-0000 00:00"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/radioGroup"
+            android:layout_toRightOf="@+id/radioGroup"
+            android:text="Oznacite neke od kucica ponudjenih iznad ovog teksta ako zelite primati obavijesti o radarima za ta podrucja. Vrijeme primanja obavijesti je u 00:00 i 12:00h."
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="18sp" />
+
     </RelativeLayout>
 
 </LinearLayout>

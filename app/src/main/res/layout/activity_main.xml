@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mnmnm.radari.MainActivity">
+    tools:context="mnmnm.radari.MainActivity"
+    android:background="@drawable/radarad">
 
     <TextView
         android:id="@+id/tvDatum"
@@ -13,7 +13,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="TextView"
+        android:text=""
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="24sp" />
 
     <TextView
@@ -23,17 +24,19 @@
         android:layout_below="@+id/tvDatum"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="74dp"
-        android:text="TextView"
+        android:text=""
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/tvVrijeme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:text=""
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/tvMjesto"
@@ -45,6 +48,7 @@
         android:layout_marginLeft="83dp"
         android:layout_marginStart="83dp"
         android:layout_marginTop="81dp"
-        android:text="TextView"
+        android:text=""
+        android:textColor="@android:color/holo_orange_light"
         android:textSize="18sp" />
 </RelativeLayout>

@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -12,8 +11,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     TextView tvDatum, tvVrijeme, tvMjesto, tvPU;
-    public String date, time1, time2, place, pu, opcina, kljuc;
-
+    public String date, time1, time2, place, pu, kljuc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
         kljuc = s.getString("opcina");
 
-        tvDatum = (TextView) findViewById(R.id.tvDatum);
-        tvVrijeme = (TextView) findViewById(R.id.tvVrijeme);
+        tvDatum = findViewById(R.id.tvDatum);
+        tvVrijeme = findViewById(R.id.tvVrijeme);
         tvMjesto = findViewById(R.id.tvMjesto);
-        tvPU = (TextView) findViewById(R.id.tvPU);
+        tvPU = findViewById(R.id.tvPU);
 
         checkData(kljuc);
-
-
     }
+
     public boolean checkData(String kljuc){
 
         List<SugarRadars> allRadars = SugarRadars.listAll(SugarRadars.class);
@@ -40,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
         boolean rtrn = false;
         if(allRadars.isEmpty()){
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
-
         }else{
-
             for(int i = 0;i<allRadars.size();i++) {
 
                 Calendar c = Calendar.getInstance();
@@ -66,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-
         }
         return rtrn;
     }
