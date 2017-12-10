@@ -8,9 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
-import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +20,6 @@ import com.orm.SugarContext;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 
 public class StartingActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnStarting1, btnStarting2, btnStarting3, btnStarting4, btnStartingRefresh;
@@ -37,7 +34,7 @@ public class StartingActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SugarContext.init(this);
-        setContentView(R.layout.activity_starting);
+        setContentView(R.layout.activity_starting2);
 
         btnStarting1 = findViewById(R.id.btnStarting1);
         btnStarting2 = findViewById(R.id.btnStarting2);
