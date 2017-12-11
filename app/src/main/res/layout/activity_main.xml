@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mnmnm.radari.MainActivity"
-    android:background="@drawable/radarad">
+    android:background="@drawable/Radar_pozadina">
 
     <TextView
         android:id="@+id/tvDatum"
