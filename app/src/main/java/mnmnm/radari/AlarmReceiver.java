@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 /**
  * Created by Edo on 12/9/2017.
@@ -16,6 +18,10 @@ import android.support.v4.app.NotificationCompat;
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        Log.i("Receiver", "Broadcast received: " + action);
+
+
         NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
 

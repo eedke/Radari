@@ -47,17 +47,6 @@
                 android:layout_height="wrap_content"
                 android:text="Posušje" />
 
-            <CheckBox
-                android:id="@+id/checkBox1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Grude" />
-
-            <CheckBox
-                android:id="@+id/checkBox2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Posusje" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,20 +67,6 @@
                 android:layout_height="wrap_content"
                 android:text="Široki Brijeg" />
 
-            <CheckBox
-                android:id="@+id/checkBox3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ljubuski" />
-
-            <CheckBox
-                android:id="@+id/checkBox4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:text="Siroki Brijeg" />
         </LinearLayout>
     </LinearLayout>
 
@@ -112,16 +87,14 @@
             android:layout_weight="1"
             android:text="Osvježi" />
 
-        <TextView
-            android:id="@+id/textView"
+        <CheckBox
+            android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/radioGroup"
-            android:layout_toRightOf="@+id/radioGroup"
-            android:text="Oznacite neke od kucica ponudjenih iznad ovog teksta ako zelite primati obavijesti o radarima za ta podrucja. Vrijeme primanja obavijesti je u 00:00 i 12:00h."
-            android:textColor="@android:color/holo_orange_light"
-            android:textSize="18sp" />
+            android:text="Primajte obavijesti?" />
 
     </RelativeLayout>
 
