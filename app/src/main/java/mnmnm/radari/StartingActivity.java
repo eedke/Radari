@@ -37,7 +37,7 @@ public class StartingActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SugarContext.init(this);
-        setContentView(R.layout.activity_starting2);
+        setContentView(R.layout.activity_starting);
 
         btnStarting1 = findViewById(R.id.btnStarting1);
         btnStarting2 = findViewById(R.id.btnStarting2);
