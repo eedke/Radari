@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="mnmnm.radari.StartingActivity"
-    android:background="@drawable/radarad">
+    android:background="@drawable/radarcartoon1">
 
     <LinearLayout
         android:layout_width="match_parent"
